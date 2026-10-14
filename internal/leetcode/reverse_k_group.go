@@ -49,9 +49,3 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		groupPrev = newTail
 	}
 }
-
-// ListNode is one node of a singly linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
