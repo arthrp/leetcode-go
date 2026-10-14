@@ -5,3 +5,8 @@
 - `internal/leetcode/registry.go` maps each problem number to a solver in `solvers`. A solver reads its arguments with the accessors in `args.go` (`intArg`, `strArg`, `intsArg`, `strsArg`, `byteGridArg`).
 - To add a problem, write the solution and its test, add a row to `inputs.txt`, and add a `solvers` entry. Every row needs a solver and every solver needs a row, or the package panics at init.
 - Check changes with `go test ./...` and `go run ./cmd/leetcode <number>`.
+
+# Comments
+
+- Keep the comment above a solution function short: the problem number and title, 1-2 lines on what the function does, and its time and extra-memory complexity in big O notation.
+- Explain the approach in comments next to the code lines they describe, not in the top comment.

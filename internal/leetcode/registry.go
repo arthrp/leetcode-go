@@ -28,6 +28,9 @@ var solvers = map[int]func(a args) any{
 	46: func(a args) any { return permute(a.intsArg("nums")) },
 	51: func(a args) any { return solveNQueens(a.intArg("n")) },
 	65: func(a args) any { return isNumber(a.strArg("s")) },
+	68: func(a args) any {
+		return fmt.Sprintf("%q", fullJustify(a.strsArg("words"), a.intArg("maxWidth")))
+	},
 	127: func(a args) any {
 		return ladderLength(a.strArg("beginWord"), a.strArg("endWord"), a.strsArg("wordList"))
 	},

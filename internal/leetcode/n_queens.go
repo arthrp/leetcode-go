@@ -1,14 +1,8 @@
 package leetcode
 
 // 51 - N-Queens
-// Queens attack along a row, a column, or a diagonal. Exactly one queen goes
-// in each row, so two queens never share a row. cols[c] is true when column
-// c already holds a queen. The two diagonal directions are indexed separately:
-// squares on one diagonal share row-col, and squares on the other share
-// row+col. row-col runs from 1-n to n-1, so adding n-1 keeps that index
-// non-negative. row+col runs from 0 to 2n-2.
+// solveNQueens returns every board with n queens on an n x n grid where no two queens attack each other.
 // Time is O(n!). Extra memory is O(n), plus the boards returned.
-
 func solveNQueens(n int) [][]string {
 	result := make([][]string, 0) // solutions may appear in any order
 	queens := make([]int, n)      // queens[r] is the column chosen for row r; one queen per row, so rows never clash
