@@ -24,7 +24,12 @@ func main() {
 		if !ok {
 			exitf("no solution for problem %d", number)
 		}
-		fmt.Printf("%d - %s\nInput: %s\nOutput: %v\n", p.Number, p.Title, p.Input, p.Run())
+		out, err := p.Run()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%v\n", err)
+			os.Exit(1)
+		}
+		fmt.Printf("%d - %s\nInput: %s\nOutput: %v\n", p.Number, p.Title, p.Input, out)
 	default:
 		exitf("too many arguments")
 	}
