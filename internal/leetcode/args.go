@@ -3,10 +3,11 @@ package leetcode
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 // args holds the named values parsed from a LeetCode sample input, such as
-// `head = [1,2,3,4,5], k = 2`. Values are int, string, or []any.
+// `head = [1,2,3,4,5], k = 2`. Values are int, string, []any, or nil for null.
 type args map[string]any
 
 // argError is the panic value the accessors raise for a missing or mistyped
@@ -91,9 +92,19 @@ func (p *parser) value() (any, error) {
 		return p.array()
 	case '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
 		return p.integer()
+	case 'n':
+		return p.null()
 	default:
 		return nil, fmt.Errorf("unexpected %q", p.s[p.i:])
 	}
+}
+
+func (p *parser) null() (any, error) {
+	if !strings.HasPrefix(p.s[p.i:], "null") {
+		return nil, fmt.Errorf("unexpected %q", p.s[p.i:])
+	}
+	p.i += len("null")
+	return nil, nil
 }
 
 func (p *parser) integer() (int, error) {
@@ -260,6 +271,18 @@ func (a args) byteGridArg(name string) [][]byte {
 		}
 	}
 	return out
+}
+
+// treeArg reads a LeetCode level-order array, where null marks a missing
+// child, as a binary tree.
+func (a args) treeArg(name string) *TreeNode {
+	items := a.sliceArg(name)
+	for i, item := range items {
+		if _, ok := item.(int); !ok && item != nil {
+			panic(&argError{fmt.Sprintf("argument %q[%d] is %T, want int or null", name, i, item)})
+		}
+	}
+	return buildTree(items)
 }
 
 func (a args) sliceArg(name string) []any {

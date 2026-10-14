@@ -33,11 +33,20 @@ var solvers = map[int]func(a args) any{
 	68: func(a args) any {
 		return fmt.Sprintf("%q", fullJustify(a.strsArg("words"), a.intArg("maxWidth")))
 	},
-	76: func(a args) any { return fmt.Sprintf("%q", minWindow(a.strArg("s"), a.strArg("t"))) },
-	84: func(a args) any { return largestRectangleArea(a.intsArg("heights")) },
+	76:  func(a args) any { return fmt.Sprintf("%q", minWindow(a.strArg("s"), a.strArg("t"))) },
+	84:  func(a args) any { return largestRectangleArea(a.intsArg("heights")) },
+	85:  func(a args) any { return maximalRectangle(a.byteGridArg("matrix")) },
+	115: func(a args) any { return numDistinct(a.strArg("s"), a.strArg("t")) },
+	123: func(a args) any { return maxProfitIII(a.intsArg("prices")) },
+	124: func(a args) any { return maxPathSum(a.treeArg("root")) },
 	127: func(a args) any {
 		return ladderLength(a.strArg("beginWord"), a.strArg("endWord"), a.strsArg("wordList"))
 	},
+	132: func(a args) any { return minCut(a.strArg("s")) },
+	140: func(a args) any {
+		return fmt.Sprintf("%q", wordBreakII(a.strArg("s"), a.strsArg("wordDict")))
+	},
+	154:  func(a args) any { return findMinII(a.intsArg("nums")) },
 	200:  func(a args) any { return numIslands(a.byteGridArg("grid")) },
 	940:  func(a args) any { return distinctSubseqII(a.strArg("s")) },
 	1406: func(a args) any { return stoneGameIII(a.intsArg("stoneValue")) },

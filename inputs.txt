@@ -10,7 +10,14 @@ Number    Title    Input
 68    Text Justification    words = ["This", "is", "an", "example", "of", "text", "justification."], maxWidth = 16
 76    Minimum Window Substring    s = "ADOBECODEBANC", t = "ABC"
 84    Largest Rectangle in Histogram    heights = [2,1,5,6,2,3]
+85    Maximal Rectangle    matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+115    Distinct Subsequences    s = "rabbbit", t = "rabbit"
+123    Best Time to Buy and Sell Stock III    prices = [3,3,5,0,0,3,1,4]
+124    Binary Tree Maximum Path Sum    root = [-10,9,20,null,null,15,7]
 127    Word Ladder    beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
+132    Palindrome Partitioning II    s = "aab"
+140    Word Break II    s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
+154    Find Minimum in Rotated Sorted Array II    nums = [2,2,2,0,1]
 200    Number of Islands    grid = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
 940    Distinct Subsequences II    s = "abc"
 1406    Stone Game III    stoneValue = [1,2,3,7]

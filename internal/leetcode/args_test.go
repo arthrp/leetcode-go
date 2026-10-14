@@ -27,6 +27,7 @@ func TestParseArgsValues(t *testing.T) {
 		{`s = "a\"b"`, args{"s": `a"b`}},
 		{`nums = [1, 2, 3]`, args{"nums": []any{1, 2, 3}}},
 		{`grid = [["1","0"],["0","1"]]`, args{"grid": []any{[]any{"1", "0"}, []any{"0", "1"}}}},
+		{`root = [1,null,2]`, args{"root": []any{1, nil, 2}}},
 		{`empty = []`, args{"empty": []any{}}},
 		{"", args{}},
 	}
@@ -52,6 +53,7 @@ func TestParseArgsErrors(t *testing.T) {
 		`n = 4,`,
 		`= 4`,
 		`n =`,
+		`n = nul`,
 	} {
 		t.Run(in, func(t *testing.T) {
 			if _, err := parseArgs(in); err == nil {
@@ -62,7 +64,7 @@ func TestParseArgsErrors(t *testing.T) {
 }
 
 func TestArgAccessors(t *testing.T) {
-	a, err := parseArgs(`n = 4, s = "abc", nums = [1,2], words = ["hot","dot"], grid = [["1","0"],["0","1"]]`)
+	a, err := parseArgs(`n = 4, s = "abc", nums = [1,2], words = ["hot","dot"], grid = [["1","0"],["0","1"]], root = [1,null,2]`)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -79,6 +81,10 @@ func TestArgAccessors(t *testing.T) {
 	if !reflect.DeepEqual(a.byteGridArg("grid"), wantGrid) {
 		t.Fatalf("byteGridArg = %v", a.byteGridArg("grid"))
 	}
+	wantTree := &TreeNode{Val: 1, Right: &TreeNode{Val: 2}}
+	if !reflect.DeepEqual(a.treeArg("root"), wantTree) {
+		t.Fatal("treeArg does not match the expected tree")
+	}
 }
 
 func TestArgAccessorErrors(t *testing.T) {
@@ -94,6 +100,8 @@ func TestArgAccessorErrors(t *testing.T) {
 		func() { a.intsArg("nums") },
 		func() { a.strsArg("nums") },
 		func() { a.byteGridArg("nums") },
+		func() { a.treeArg("k") },
+		func() { a.treeArg("nums") },
 	} {
 		func() {
 			defer func() {
