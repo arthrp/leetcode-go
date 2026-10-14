@@ -23,14 +23,18 @@ var solvers = map[int]func(a args) any{
 	25: func(a args) any {
 		return listVals(reverseKGroup(buildList(a.intsArg("head")), a.intArg("k")))
 	},
+	41: func(a args) any { return firstMissingPositive(a.intsArg("nums")) },
 	42: func(a args) any { return trap(a.intsArg("height")) },
 	44: func(a args) any { return isMatch(a.strArg("s"), a.strArg("p")) },
 	46: func(a args) any { return permute(a.intsArg("nums")) },
 	51: func(a args) any { return solveNQueens(a.intArg("n")) },
+	60: func(a args) any { return fmt.Sprintf("%q", getPermutation(a.intArg("n"), a.intArg("k"))) },
 	65: func(a args) any { return isNumber(a.strArg("s")) },
 	68: func(a args) any {
 		return fmt.Sprintf("%q", fullJustify(a.strsArg("words"), a.intArg("maxWidth")))
 	},
+	76: func(a args) any { return fmt.Sprintf("%q", minWindow(a.strArg("s"), a.strArg("t"))) },
+	84: func(a args) any { return largestRectangleArea(a.intsArg("heights")) },
 	127: func(a args) any {
 		return ladderLength(a.strArg("beginWord"), a.strArg("endWord"), a.strsArg("wordList"))
 	},
