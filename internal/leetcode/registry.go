@@ -27,6 +27,7 @@ var solvers = map[int]func(a args) any{
 	44: func(a args) any { return isMatch(a.strArg("s"), a.strArg("p")) },
 	46: func(a args) any { return permute(a.intsArg("nums")) },
 	51: func(a args) any { return solveNQueens(a.intArg("n")) },
+	65: func(a args) any { return isNumber(a.strArg("s")) },
 	127: func(a args) any {
 		return ladderLength(a.strArg("beginWord"), a.strArg("endWord"), a.strsArg("wordList"))
 	},

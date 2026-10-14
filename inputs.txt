@@ -4,6 +4,7 @@ Number    Title    Input
 44    Wildcard Matching    s = "adceb", p = "*a*b"
 46    Permutations    nums = [1,2,3]
 51    N-Queens    n = 4
+65    Valid Number    s = "-123.456e789"
 127    Word Ladder    beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
 200    Number of Islands    grid = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
 940    Distinct Subsequences II    s = "abc"
