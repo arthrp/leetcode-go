@@ -47,6 +47,7 @@ var solvers = map[int]func(a args) any{
 		return fmt.Sprintf("%q", wordBreakII(a.strArg("s"), a.strsArg("wordDict")))
 	},
 	154:  func(a args) any { return findMinII(a.intsArg("nums")) },
+	188:  func(a args) any { return maxProfitIV(a.intArg("k"), a.intsArg("prices")) },
 	200:  func(a args) any { return numIslands(a.byteGridArg("grid")) },
 	940:  func(a args) any { return distinctSubseqII(a.strArg("s")) },
 	1406: func(a args) any { return stoneGameIII(a.intsArg("stoneValue")) },

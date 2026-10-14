@@ -18,6 +18,7 @@ Number    Title    Input
 132    Palindrome Partitioning II    s = "aab"
 140    Word Break II    s = "catsanddog", wordDict = ["cat","cats","and","sand","dog"]
 154    Find Minimum in Rotated Sorted Array II    nums = [2,2,2,0,1]
+188    Best Time to Buy and Sell Stock IV    k = 2, prices = [2,4,1]
 200    Number of Islands    grid = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
 940    Distinct Subsequences II    s = "abc"
 1406    Stone Game III    stoneValue = [1,2,3,7]
